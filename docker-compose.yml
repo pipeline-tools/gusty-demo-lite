@@ -1,0 +1,51 @@
+version: '3.3'
+services:
+    postgres:
+        image: postgres:13.1
+        environment:
+            - POSTGRES_USER=gusty
+            - POSTGRES_PASSWORD=demo
+            - POSTGRES_DB=airflow
+        ports:
+            - "5678:5432"
+    airflow:
+        build:
+            context: ./airflow
+        environment:
+                - AIRFLOW__CORE__SQL_ALCHEMY_CONN=postgresql://gusty:demo@postgres:5432/airflow
+                - AIRFLOW__CORE__FERNET_KEY='_N_5nRl4ohC4UIU8Z2diLijUl0T-aySs34XL4s5yrOs='
+                - AIRFLOW__WEBSERVER__SECRET_KEY='n-BqqnR9cd4luIGn3iBntRvXL1b8m3QdDzv1c65AdiY='
+        command: >
+            /bin/bash -c "
+                # Wait for PG
+                sleep 5
+
+                # Clean up pid
+                rm -f airflow-webserver.pid
+
+                # Set up metadata database
+                airflow db upgrade
+
+                # Create default user
+                airflow users create \
+                  --username gusty \
+                  --password demo \
+                  --email gusty@gusty.com \
+                  --firstname Gusty \
+                  --lastname User \
+                  --role Admin
+
+                # Start airflow
+                airflow scheduler &
+            	  airflow webserver
+
+                # Keep the server on no matter what
+                sleep infinity
+            "
+        restart: always
+        depends_on:
+            - postgres
+        volumes:
+                - ./airflow:/usr/local/airflow
+        ports:
+            - "8080:8080"

@@ -127,3 +127,13 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Ignore logs folder
+airflow/logs
+airflow/logs/*
+
+# Ignore webserver pid
+airflow/airflow-webserver.pid
+
+# Unittests are personal
+unittests.cfg
