@@ -1,5 +1,15 @@
 This is a very light demonstration of how the [gusty package](https://github.com/chriscardillo/gusty) works with [Airflow](https://airflow.apache.org/) to assist in the organization, construction, and management of DAGs, tasks, dependencies, and operators. It requires that you have [Docker](https://docs.docker.com/get-docker/) and [Docker Compose](https://docs.docker.com/compose/install/) installed on your machine.
 
+## TL;DR
+
+gusty takes YAML specifications of individual tasks and converts those specs into full Airflow DAGs. gusty includes full support for Airflow DAGs, task groups, tasks, dependencies, external dependencies, and more.
+
+If don't have time to run the demo, please check out the ["Why You Should Try gusty" section below](#why-you-should-try-gusty).
+
+Lastly, here is how gusty renders the [more_gusty DAG](https://github.com/chriscardillo/gusty-demo-lite/tree/main/airflow/dags/more_gusty):
+
+![a rendered gusty DAG](images/more-gusty-DAG.png)
+
 ## Running the demo
 
 ### Up and Running
