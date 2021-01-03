@@ -8,7 +8,7 @@ If don't have time to run the demo, please check out the ["Why You Should Try gu
 
 Lastly, here is how gusty renders the [more_gusty DAG](https://github.com/chriscardillo/gusty-demo-lite/tree/main/airflow/dags/more_gusty):
 
-![a rendered gusty DAG](images/more-gusty-DAG.png)
+![a rendered gusty DAG](images/more-gusty-DAG-2.png)
 
 ## Running the demo
 
