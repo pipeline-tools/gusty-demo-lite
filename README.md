@@ -81,7 +81,7 @@ Below are all of the current gusty features, as described in the `more_gusty` DA
   - `prefix_group_id` is set to `False` by default, because task names should be explicitly set unless you specify otherwise.
 
 
-**Note shown here but also very useful**
+**Not shown here but also very useful**
 
   - gusty supports custom operators, using the `local` keyword when specifying an operator, e.g. `operator: local.your_custom_operator_here`. gusty will look for these operators in an `operators` directory within your `AIRFLOW_HOME`.
   - gusty will also pick up dependencies you specify in your operator, so you can auto-detect dependencies in a SQL query and pass them along, then gusty will set these dependencies.
