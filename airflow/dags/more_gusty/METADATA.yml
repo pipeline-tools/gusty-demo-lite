@@ -23,7 +23,7 @@ doc_md: |-
 
   Here are the main features illustrated in both this DAG's directory (of YAML specs) and how these specs render below:
 
-  **Everything can be specified as YAML**
+  **Everything can be specified as YAML (or other file formats)**
 
 
     - DAGs and task groups can use a file titled `METADATA.yml` to specify parameter available to either a DAG or a task group. Anything specified in `METADATA.yml` will override defaults set in gusty's `create_dag` function.
@@ -31,7 +31,7 @@ doc_md: |-
     - For each task, dependencies within the same DAG can listed under `dependencies` in the task YAML.
     - External dependencies for dependencies located outside the same DAG can be listed using the format `dag_id: task_id`, or `dag_id: all` to depend on an entire other DAG.
     - All DAGs, task groups, and tasks are named after their folder or file names.
-    - gusty also accepts YAML front matter in `.ipynb` and `.Rmd` files.
+    - gusty also accepts YAML front matter in `.py`, `.ipynb`, and `.Rmd` files.
 
 
   **Defaults can be specified in `create_dag`**
@@ -47,6 +47,8 @@ doc_md: |-
     - `latest_only` - A boolean that will tell gusty to ensure the entire DAG does not run tasks during catchup runs. This is enabled by default.
     - `external_dependencies` - Specify external dependencies on the DAG level, using the same format described above. Note that if you specify external dependencies in a call to `create_dag`, you use the format `[{'dag_id': 'task_id'}]`.
     - `root_tasks` - Specify task ids that should be placed at the root of your DAG, like an S3 sensor.
+    - `leaf_tasks` - Specify task ids that should be placed at the end of your DAG, like a task that generates a report.
+    - `ignore_subfolders` - Disable the creation of Task Groups from DAG directory subfolders.
 
 
   **Task Group features**
