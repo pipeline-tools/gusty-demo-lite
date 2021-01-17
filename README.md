@@ -48,7 +48,7 @@ Note the bigger demo takes a while longer to build, which is why we made a light
 
 Below are all of the current gusty features, as described in the `more_gusty` DAG docs:
 
-**Everything can be specified as YAML**
+**Everything can be specified as YAML (or other file formats)**
 
 
   - DAGs and task groups can use a file titled `METADATA.yml` to specify parameter available to either a DAG or a task group. Anything specified in `METADATA.yml` will override defaults set in gusty's `create_dag` function.
@@ -56,7 +56,7 @@ Below are all of the current gusty features, as described in the `more_gusty` DA
   - For each task, dependencies within the same DAG can listed under `dependencies` in the task YAML.
   - External dependencies for dependencies located outside the same DAG can be listed using the format `dag_id: task_id`, or `dag_id: all` to depend on an entire other DAG.
   - All DAGs, task groups, and tasks are named after their folder or file names.
-  - gusty also accepts YAML front matter in `.ipynb` and `.Rmd` files.
+  - gusty also accepts YAML front matter in `.py`, `.ipynb`, and `.Rmd` files.
 
 
 **Defaults can be specified in `create_dag`**
@@ -72,6 +72,8 @@ Below are all of the current gusty features, as described in the `more_gusty` DA
   - `latest_only` - A boolean that will tell gusty to ensure the entire DAG does not run tasks during catchup runs. This is enabled by default.
   - `external_dependencies` - Specify external dependencies on the DAG level, using the same format described above. Note that if you specify external dependencies in a call to `create_dag`, you use the format `[{'dag_id': 'task_id'}]`.
   - `root_tasks` - Specify task ids that should be placed at the root of your DAG, like an S3 sensor.
+  - `leaf_tasks` - Specify task ids that should be placed at the end of your DAG, like a task that generates a report.
+  - `ignore_subfolders` - Disable the creation of Task Groups from DAG directory subfolders.
 
 
 **Task Group features**
@@ -81,8 +83,8 @@ Below are all of the current gusty features, as described in the `more_gusty` DA
   - `prefix_group_id` is set to `False` by default, because task names should be explicitly set unless you specify otherwise.
 
 
-**Not shown here but also very useful**
+**Note shown here but also very useful**
 
   - gusty supports custom operators, using the `local` keyword when specifying an operator, e.g. `operator: local.your_custom_operator_here`. gusty will look for these operators in an `operators` directory within your `AIRFLOW_HOME`.
-  - gusty will also pick up dependencies you specify in your operator, so you can auto-detect dependencies in a SQL query and pass them along, then gusty will set these dependencies.
-  - gusty also carries a `file_path` attribute, which you can use to, for example, render a Jupyter Notebook.
+  - gusty will also pick up dependencies you specify in your operator, so you can auto-detect dependencies in a SQL query and pass them along, then gusty will set these dependencies
+  - gusty also carries a `file_path` attribute, which you can use to, for example, render a Jupyter Notebook
