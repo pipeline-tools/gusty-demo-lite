@@ -18,6 +18,8 @@ external_dependencies:
   - gusty_tutorial: all
 root_tasks:
   - some_sensor
+leaf_tasks:
+  - enjoy_breakfast
 doc_md: |-
   The DAG below does a pretty good job of showing gusty's core strength: configuring DAGs for you, so you can focus on the tasks instead.
 

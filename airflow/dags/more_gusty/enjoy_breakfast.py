@@ -1,8 +1,7 @@
 # ---
-# dependencies:
-#   - juice
-#   - coffee
-#   - griddle
+# python_callable: enjoy
 # ---
 
-print("breakfast is excellent")
+def enjoy():
+    print("breakfast is excellent")
+    return "a smile"
