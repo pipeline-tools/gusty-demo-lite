@@ -8,7 +8,7 @@ RUN pip3 install psycopg2
 # Install airflow and gusty
 RUN pip3 install sqlalchemy==1.3.23
 RUN pip3 install apache-airflow==2.0.0
-RUN pip3 install gusty==0.5.0
+RUN pip3 install gusty==0.5.2
 
 # Airflow Env Vars
 ENV AIRFLOW_HOME='/usr/local/airflow'
