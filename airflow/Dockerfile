@@ -6,8 +6,8 @@ RUN apt-get update && apt-get install -y libpq-dev build-essential
 RUN pip3 install psycopg2
 
 # Install airflow and gusty
-RUN pip3 install apache-airflow==2.5.1
-RUN pip3 install gusty==0.18.1
+RUN pip3 install apache-airflow==2.5.3
+RUN pip3 install gusty==0.20.0
 
 # Airflow Env Vars
 ENV AIRFLOW_HOME='/usr/local/airflow'
