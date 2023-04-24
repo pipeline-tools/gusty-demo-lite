@@ -1,4 +1,4 @@
-This is a very light demonstration of how the [gusty package](https://github.com/chriscardillo/gusty) works with [Airflow](https://airflow.apache.org/) to assist in the organization, construction, and management of DAGs, tasks, dependencies, and operators. It requires that you have [Docker](https://docs.docker.com/get-docker/) and [Docker Compose](https://docs.docker.com/compose/install/) installed on your machine.
+This is a very light demonstration of how the [gusty package](https://pypi.org/project/gusty/) works with [Airflow](https://airflow.apache.org/) to assist in the organization, construction, and management of DAGs, tasks, dependencies, and operators. It requires that you have [Docker](https://docs.docker.com/get-docker/) and [Docker Compose](https://docs.docker.com/compose/install/) installed on your machine.
 
 ## TL;DR
 
@@ -6,7 +6,7 @@ gusty takes YAML specifications of individual tasks and converts those specs int
 
 If don't have time to run the demo, please check out the ["Why You Should Try gusty" section below](#why-you-should-try-gusty).
 
-Lastly, here is how gusty renders the [more_gusty DAG](https://github.com/chriscardillo/gusty-demo-lite/tree/main/airflow/dags/more_gusty):
+Lastly, here is how gusty renders the [more_gusty DAG](https://github.com/pipeline-tools/gusty-demo-lite/tree/main/airflow/dags/more_gusty):
 
 ![a rendered gusty DAG](images/more-gusty-DAG-2.png)
 
@@ -32,15 +32,15 @@ You are good to go check out Airflow at `localhost:8080` in your browser! You ca
 
 ### Security Note
 
-Please note this demo is not safe, as usernames, passwords, and keys are stored in plain text in the `docker-compose.yml` file. In general, you should store these sensitive items in your environments. For a more secure demonstration of gusty with Airflow, please go to the full-sized [gusty demo](https://github.com/chriscardillo/gusty-demo).
+Please note this demo is not safe, as usernames, passwords, and keys are stored in plain text in the `docker-compose.yml` file. In general, you should store these sensitive items in your environments. For a more secure demonstration of gusty with Airflow, please go to the full-sized [gusty demo](https://github.com/pipeline-tools/gusty-demo).
 
 ### A Bigger Demo is Available
 
-If you have tried this demo, and think gusty is cool but you don't see a reason to use it yet, please check out the full-sized [gusty demo](https://github.com/chriscardillo/gusty-demo), which provides proofs of concept for how gusty helps enable:
+If you have tried this demo, and think gusty is cool but you don't see a reason to use it yet, please check out the full-sized [gusty demo](https://github.com/pipeline-tools/gusty-demo), which provides proofs of concept for how gusty helps enable:
 
-  - Auto-detecting and the automatic setting of dependencies in SQL-related tasks (see: [MaterializedPostgresOperator](https://github.com/chriscardillo/gusty-demo/blob/master/airflow/operators/materialized_postgres_operator.py))
-  - Running tasks that are Jupyter Notebooks (see: [JupyterOperator](https://github.com/chriscardillo/gusty-demo/blob/master/airflow/operators/jupyter_operator.py))
-  - Running tasks that are RMarkdown documents (see: [RmdOperator](https://github.com/chriscardillo/gusty-demo/blob/master/airflow/operators/rmd_operator.py))
+  - Auto-detecting and the automatic setting of dependencies in SQL-related tasks (see: [MaterializedPostgresOperator](https://github.com/pipeline-tools/gusty-demo/blob/master/airflow/operators/materialized_postgres_operator.py))
+  - Running tasks that are Jupyter Notebooks (see: [JupyterOperator](https://github.com/pipeline-tools/gusty-demo/blob/master/airflow/operators/jupyter_operator.py))
+  - Running tasks that are RMarkdown documents (see: [RmdOperator](https://github.com/pipeline-tools/gusty-demo/blob/master/airflow/operators/rmd_operator.py))
 
 Note the bigger demo takes a while longer to build, which is why we made a light demo here.
 
