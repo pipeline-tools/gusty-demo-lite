@@ -27,13 +27,7 @@ services:
                 airflow db upgrade
 
                 # Create default user
-                airflow users create \
-                  --username gusty \
-                  --password demo \
-                  --email gusty@gusty.com \
-                  --firstname Gusty \
-                  --lastname User \
-                  --role Admin
+                airflow users create --username gusty --password demo --email gusty@gusty.com --firstname Gusty --lastname User --role Admin
 
                 # Start airflow
                 airflow scheduler &
